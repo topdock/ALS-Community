@@ -33,19 +33,9 @@ void AALSCharacter::ClearHeldObject()
 void AALSCharacter::AttachToHand(UStaticMesh* NewStaticMesh, USkeletalMesh* NewSkeletalMesh, UClass* NewAnimClass,
                                  bool bLeftHand, FVector Offset)
 {
-	ClearHeldObject();
-
-	if (IsValid(NewStaticMesh))
+	if (IsValid(NewAnimClass))
 	{
-		StaticMesh->SetStaticMesh(NewStaticMesh);
-	}
-	else if (IsValid(NewSkeletalMesh))
-	{
-		SkeletalMesh->SetSkeletalMesh(NewSkeletalMesh);
-		if (IsValid(NewAnimClass))
-		{
-			SkeletalMesh->SetAnimInstanceClass(NewAnimClass);
-		}
+		SkeletalMesh->SetAnimInstanceClass(NewAnimClass);
 	}
 
 	FName AttachBone;
